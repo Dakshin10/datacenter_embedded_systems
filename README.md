@@ -165,6 +165,15 @@ graph BT
 
 ## Pinout & Hardware Wiring
 
+### Circuit Layout & Interconnect Diagram
+
+<p align="center">
+  <img src="circuit_diagram.png" alt="DataVault Hardware Circuit Layout and Pinout Diagram" width="100%">
+</p>
+
+> [!TIP]
+> A scalable vector version is also available at [`circuit_diagram.svg`](circuit_diagram.svg) for infinite zoom and high-resolution printing.
+
 ### Comprehensive Pin Mapping Table
 
 | Peripheral | Signal | STM32F411 Pin | Mode / Alternate Function | Electrical Characteristics | Target Device Pin |
