@@ -35,7 +35,7 @@
 10. [Getting Started & Build Instructions](#getting-started--build-instructions)
 11. [Troubleshooting & Diagnostics](#troubleshooting--diagnostics)
 12. [Repository Directory Structure](#repository-directory-structure)
-13. [Author & Credits](#author--credits)
+13. [Team Members & Credits](#team-members--credits)
 
 ---
 
@@ -503,12 +503,22 @@ datacenter_embedded_systems/
 
 ---
 
-## Author & Credits
+## Team Members & Credits
 
-- **Author**: **Dakshin Raj** ([@Dakshin10](https://github.com/Dakshin10))
+### 👥 Engineering Team
+
+| Member | GitHub Handle | Profile Link | Role / Domain |
+| :--- | :--- | :--- | :--- |
+| **Dakshin Raj** | `@Dakshin10` | [Dakshin10](https://github.com/Dakshin10) | **Lead Developer** · Firmware Architecture, Bare-Metal Drivers & HTTP Engine |
+| **Nihil Mukkesh** | `@SH-Nihil-Mukkesh-25` | [SH-Nihil-Mukkesh-25](https://github.com/SH-Nihil-Mukkesh-25) | **Team Member** · Hardware Prototyping & Module Interfacing |
+| **Shre Raam P J** | `@SHRE-RAAM-P-J` | [SHRE-RAAM-P-J](https://github.com/SHRE-RAAM-P-J) | **Team Member** · Network Protocol & Serial Communication Testing |
+| **Vibin R** | `@VibinR-code` | [VibinR-code](https://github.com/VibinR-code) | **Team Member** · System Integration, Filesystem & Diagnostics |
+
+### 🎓 Academic & Platform Credits
 - **Course**: Embedded Systems (Semester 5)
-- **Filesystem**: [ChaN FatFs](http://elm-chan.org/fsw/ff/00index_e.html) by ChaN
 - **Target Platform**: STMicroelectronics STM32F411CEU6 (ARM Cortex-M4)
+- **Filesystem Core**: [ChaN FatFs](http://elm-chan.org/fsw/ff/00index_e.html) by ChaN
+- **Wi-Fi Subsystem**: NodeMCU ESP8266 (ESP-12E / CP2102) with AT Command Firmware
 
 ---
 
