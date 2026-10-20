@@ -76,7 +76,7 @@ graph TD
 
     subgraph "Peripherals"
         OLED["SSD1306 0.96'' OLED<br/>128x64 Monochrome Display<br/>(Address: 0x3C)"]
-        ESP["ESP8266-01 Wi-Fi Module<br/>AT Command Firmware<br/>TCP Server Engine (Port 80)"]
+        ESP["NodeMCU ESP8266 (ESP-12E)<br/>AT Command Firmware<br/>TCP Server Engine (Port 80)"]
         SD["MicroSD Card Module<br/>FAT32 File Storage<br/>(SDSC / SDHC / SDXC)"]
     end
 
@@ -151,15 +151,15 @@ graph BT
 | Component | Specification / Part Number | Key Characteristics | Quantity |
 | :--- | :--- | :--- | :---: |
 | **Microcontroller** | **STM32F411CEU6 ("BlackPill")** | ARM Cortex-M4 with FPU, 512 KB Flash, 128 KB SRAM, up to 100 MHz clock | 1 |
-| **Wi-Fi Module** | **ESP8266 (ESP-01 / ESP-12)** | 802.11 b/g/n, Ai-Thinker AT command firmware (v1.7+), UART @ 115200 baud | 1 |
+| **Wi-Fi Module** | **NodeMCU ESP8266 (ESP-12E / CP2102)** | 802.11 b/g/n, onboard 3.3V LDO, CP2102 USB-UART, Ai-Thinker AT firmware (v1.7+), UART @ 115200 baud | 1 |
 | **Storage Media** | **MicroSD Card Module** | SPI interface with onboard 3.3V LDO / buffer, supports SDSC & SDHC (FAT32) | 1 |
 | **MicroSD Card** | 8 GB – 32 GB Class 10 | Formatted to FAT32 with 32 KB cluster size | 1 |
 | **Status Display** | **SSD1306 0.96" OLED** | 128x64 resolution, I2C interface, address `0x3C`, monochrome blue/white | 1 |
-| **Power Supply** | 3.3V Dedicated LDO / Buck (>= 800 mA) | Decoupled supply to absorb ESP8266 RF transmission spikes (up to 250 mA) | 1 |
+| **Power Supply** | 5V USB / 3.3V Rail (>= 800 mA) | NodeMCU includes onboard AMS1117-3.3V regulator; can be powered via Vin (5V) or 3V3 pin | 1 |
 | **Debugger** | ST-Link V2 / CMSIS-DAP | SWD interface (`SWCLK`, `SWDIO`) for flashing and debugging | 1 |
 
 > [!IMPORTANT]
-> **Power Supply Recommendation**: The ESP8266 draws current bursts of 200–250 mA during Wi-Fi transmission. Powering the ESP8266 directly from the onboard 3.3V pin of a basic ST-Link or cheap clone board may cause brownout resets. Use a high-current 3.3V regulator with a 100 µF capacitor across `VCC` and `GND` near the ESP8266.
+> **NodeMCU ESP8266 Power & Wiring**: The NodeMCU development board integrates an onboard AMS1117 3.3V LDO regulator, power smoothing capacitors, and an internal pull-up on the `EN` (CH_PD) pin. It can be powered either from the system 3.3V rail (into `3V3`) or directly from a 5V supply (into `Vin` or via its Micro-USB port). Unlike basic ESP-01 modules, no external pull-up resistors or jumpers are required on `EN`.
 
 ---
 
@@ -184,9 +184,11 @@ graph BT
 | | **MOSI** | `PA7` | Alternate Function 5 (`AFR[0]=5`) | Push-Pull, High-Speed (SPI1_MOSI) | `MOSI` / `DI` |
 | **SSD1306 OLED** | **SCL** | `PB6` | Alternate Function 4 (`AFR[0]=4`) | Open-Drain, Pull-Up (I2C1_SCL) | `SCL` |
 | | **SDA** | `PB7` | Alternate Function 4 (`AFR[0]=4`) | Open-Drain, Pull-Up (I2C1_SDA) | `SDA` |
-| **ESP8266 Wi-Fi**| **TX (MCU)** | `PA2` | Alternate Function 7 (`AFR[0]=7`) | Push-Pull, High-Speed (USART2_TX) | `RXD` (ESP8266) |
-| | **RX (MCU)** | `PA3` | Alternate Function 7 (`AFR[0]=7`) | Input Floating (USART2_RX) | `TXD` (ESP8266) |
-| | **CH_PD / EN** | — | Tied to 3.3V | Chip Enable | `CH_PD` / `EN` |
+| **NodeMCU ESP8266**| **TX (MCU)** | `PA2` | Alternate Function 7 (`AFR[0]=7`) | Push-Pull, High-Speed (USART2_TX) | `RX` (GPIO3 / UART0_RXD) |
+| | **RX (MCU)** | `PA3` | Alternate Function 7 (`AFR[0]=7`) | Input Floating (USART2_RX) | `TX` (GPIO1 / UART0_TXD) |
+| | **Power** | `3.3V` / `5V` | Power Rail | Regulated 3.3V DC (or 5V to Vin) | `3V3` (or `Vin`) |
+| | **Ground** | `GND` | Ground Reference | Common System Ground | `GND` |
+| | **EN / RST** | — | Internal Pull-Up on NodeMCU | Hardware enabled by default | `EN` (Internal 10k Pull-Up) |
 | **Debug / SWD** | **SWDIO** | `PA13` | Dedicated Debug Port | Serial Wire Data Input/Output | ST-Link SWDIO |
 | | **SWCLK** | `PA14` | Dedicated Debug Port | Serial Wire Clock | ST-Link SWCLK |
 | **Power** | **3.3V** | `3.3V` | Power Rail | Regulated 3.3V DC (Common VCC) | All Modules VCC |
@@ -472,6 +474,8 @@ Open [`code.c`](file:///d:/Dakshin_colledge_sem5/Embedded%20Systems/datacenter_p
 datacenter_embedded_systems/
 ├── .gitignore                                 # Git exclusions for Keil MDK artifacts, logs, and temp files
 ├── README.md                                  # Complete system engineering documentation
+├── circuit_diagram.png                        # Rendered high-resolution circuit & wiring interconnect diagram
+├── circuit_diagram.svg                        # Scalable vector graphics source for schematic/wiring
 ├── code.c                                     # Main firmware: HTTP engine, RBAC, OLED UI, web portal
 ├── sd_spi.c                                   # Low-level bare-metal SPI1 driver for MicroSD card
 ├── sd_spi.h                                   # SPI command macros, card types, and return codes
