@@ -24,7 +24,7 @@
 >
 > This case study is submitted as part of the academic requirements of the Embedded Systems course. The following details acknowledge the student contributors, academic mentor, and institutional affiliation under which this project was carried out.
 
-### Student Name(s) and Registration Number(s)
+### Student Names and Registration Numbers
 
 | Student Name | Registration Number |
 |---|---|
