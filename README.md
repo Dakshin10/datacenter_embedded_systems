@@ -214,11 +214,15 @@ Watch the complete demonstration of DataVault, showcasing the hardware setup, Wi
 
 https://github.com/Dakshin10/datacenter_embedded_systems/blob/main/assets/demo_video.mp4
 
-<p align="center">
-  <video width="85%" controls>
-    <source src="./assets/demo_video.mp4" type="video/mp4">
-  </video>
-</p>
+<h2>🎥 DataVault Project Demo</h2>
+
+<iframe
+  src="https://drive.google.com/file/d/1r-uIvRQaF6hZs1SuIjVgmvw6azi2PL5s/preview"
+  width="800"
+  height="450"
+  allow="autoplay"
+  allowfullscreen>
+</iframe>
 
 ### Comprehensive Pin Mapping Table
 
