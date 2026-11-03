@@ -30,7 +30,7 @@
 |---|---|
 | SH Nihil Mukkesh | CB.SC.U4CSE24531 |
 | P Dakshin Raj | CB.SC.U4CSE24534 |
-| Shree Raam PJ | CB.SC.U4CSE24548 |
+| Shre Raam PJ | CB.SC.U4CSE24548 |
 | Vibin Ragav S | CB.SC.U4CSE24556 |
 
 ### Academic Details
@@ -208,6 +208,12 @@ graph BT
 > [!TIP]
 > A scalable vector version is also available at [`circuit_diagram.svg`](circuit_diagram.svg) for infinite zoom and high-resolution printing.
 
+## 🎥 DataVault — Live Demonstration
+
+Watch the complete demonstration of DataVault, showcasing the hardware setup, Wi-Fi connectivity, multi-user authentication, file uploads, file management, and real-time OLED telemetry.
+
+https://github.com/Dakshin10/datacenter_embedded_systems/blob/main/assets/demo_video.mp4
+
 ### Comprehensive Pin Mapping Table
 
 | Peripheral | Signal | STM32F411 Pin | Mode / Alternate Function | Electrical Characteristics | Target Device Pin |
@@ -228,22 +234,6 @@ graph BT
 | **Power** | **3.3V** | `3.3V` | Power Rail | Regulated 3.3V DC (Common VCC) | All Modules VCC |
 | | **GND** | `GND` | Ground Reference | Common System Ground | All Modules GND |
 
----
-
-## 🎥 DataVault — Live Demonstration
-
-Watch the complete demonstration of DataVault, showcasing the hardware setup, Wi-Fi connectivity, multi-user authentication, file uploads, file management, and real-time OLED telemetry.
-
-<p align="center">
-  <video src="assets/demo_video.mp4"
-         width="85%"
-         controls
-         autoplay
-         muted
-         loop>
-    Your browser does not support the video tag.
-  </video>
-</p>
 
 ---
 
