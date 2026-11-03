@@ -16,6 +16,40 @@
 
 ---
 
+---
+
+## 🎓 Academic Acknowledgement & Institutional Details
+
+> **Very Important Note**
+>
+> This case study is submitted as part of the academic requirements of the Embedded Systems course. The following details acknowledge the student contributors, academic mentor, and institutional affiliation under which this project was carried out.
+
+### Student Name(s) and Registration Number(s)
+
+| Student Name | Registration Number |
+|---|---|
+| SH Nihil Mukkesh | CB.SC.U4CSE24531 |
+| P Dakshin Raj | CB.SC.U4CSE24534 |
+| Shree Raam PJ | CB.SC.U4CSE24548 |
+| Vibin Ragav S | CB.SC.U4CSE24556 |
+
+### Academic Details
+
+- **Mentor:** Dr. A. Baskar
+- **Course:** 23CSE304 – Embedded Systems
+- **Department:** Department of Computer Science and Engineering
+- **Institution:** School of Computing, Amrita Vishwa Vidyapeetham, Coimbatore, India.
+
+### Acknowledgement
+
+The project *DataVault: Mini Multi-User Networked Data Center* was developed as part of the academic coursework for 23CSE304 – Embedded Systems under the guidance of Dr. A. Baskar.
+
+The team sincerely acknowledges the academic mentorship, guidance, and institutional support provided by the Department of Computer Science and Engineering, School of Computing, Amrita Vishwa Vidyapeetham, Coimbatore, India, throughout the development of this case study.
+
+
+
+---
+
 ## Table of Contents
 1. [Overview & Core Features](#overview--core-features)
 2. [System Architecture](#system-architecture)
@@ -168,7 +202,7 @@ graph BT
 ### Circuit Layout & Interconnect Diagram
 
 <p align="center">
-  <img src="circuit_diagram.png" alt="DataVault Hardware Circuit Layout and Pinout Diagram" width="100%">
+  <img src="assets/circuit_diagram.png" alt="DataVault Hardware Circuit Layout and Pinout Diagram" width="100%">
 </p>
 
 > [!TIP]
@@ -193,6 +227,23 @@ graph BT
 | | **SWCLK** | `PA14` | Dedicated Debug Port | Serial Wire Clock | ST-Link SWCLK |
 | **Power** | **3.3V** | `3.3V` | Power Rail | Regulated 3.3V DC (Common VCC) | All Modules VCC |
 | | **GND** | `GND` | Ground Reference | Common System Ground | All Modules GND |
+
+---
+
+## 🎥 DataVault — Live Demonstration
+
+Watch the complete demonstration of DataVault, showcasing the hardware setup, Wi-Fi connectivity, multi-user authentication, file uploads, file management, and real-time OLED telemetry.
+
+<p align="center">
+  <video src="assets/demo_video.mp4"
+         width="85%"
+         controls
+         autoplay
+         muted
+         loop>
+    Your browser does not support the video tag.
+  </video>
+</p>
 
 ---
 
