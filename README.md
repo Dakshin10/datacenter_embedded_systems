@@ -214,6 +214,12 @@ Watch the complete demonstration of DataVault, showcasing the hardware setup, Wi
 
 https://github.com/Dakshin10/datacenter_embedded_systems/blob/main/assets/demo_video.mp4
 
+<p align="center">
+  <video width="85%" controls>
+    <source src="./assets/demo_video.mp4" type="video/mp4">
+  </video>
+</p>
+
 ### Comprehensive Pin Mapping Table
 
 | Peripheral | Signal | STM32F411 Pin | Mode / Alternate Function | Electrical Characteristics | Target Device Pin |
